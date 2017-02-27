@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Daily Status App</title>
+    <link rel="shortcut icon" href="">
+    <meta charset="utf-8" />
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--<link href="Content/bootstrap.min.css" rel="stylesheet" />-->
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body onload="HomePageLoad()">
+    <div class="row nopadding">
+        <!-- NavMenu Side -->
+        <div class="col-sm-3">
+            <nav id="nav-sidebar" class="navbar-fixed-top">
+                <div class="navbar-header">
+                    <div>
+                        <h2>Daily Status App</h2>
+                    </div>
+                </div>
+                <ul class="nav navbar-nav mainNav">
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="status.html">Status</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="developers.html">Developers</a></li>
+                </ul>
+            </nav>
+        </div><!-- /NavMenu Side -->
+        <!-- Content Side -->
+        <div class="col-sm-8" id="content">
+            <!-- Header Section-->
+            <div class="row">
+                <div class="header col-sm-11">
+                    <h1>Dashboard</h1>
+                </div>
+            </div>
+            <!-- Search by project and date Section-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group form-inline">
+                        <label class="control-label">Project</label>
+                        <select id="filterproject" class="form-control">
+                            <option value="" disabled selected>Select project</option>
+                        </select>
+                        <label class="control-label">From</label>
+                        <input type="date" id="fromdate" class="form-control" />
+                        <label class="control-label">To</label>
+                        <input type="date" id="todate" class="form-control" />
+                        <input type="button" value="Apply" id="applydate" class="btn btn-success" onclick="ApplyDateFilter()" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search by developer Section-->
+            <div class="row">
+                <div class="col-sm-6 ">
+                    <div class="form-group form-inline">
+                        <label class="control-label ">Developer</label>
+                        <select id="filterdeveloper" class="form-control">
+                            <option value="" disabled selected>Select developer</option>
+                        </select>
+                        <input type="button" value="Apply" id="applydeveloper" class="btn btn-success" onclick="ApplyDeveloperFilter()" />
+                    </div>
+                </div>
+
+                <!-- Search by curent day / show all Section-->
+                <div class="col-sm-6 text-right">
+                    <div class="col-sm-9">
+                        <div class="form-group">
+                            <input type="button" value="Show for the current day" class="btn btn-info" onclick="todayStatus()" />
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <input type="button" value="Show All" class="btn btn-success" onclick="UpdateHomeList()" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table Section-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <table class="table table-bordered table-condensed" id="homeTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th class="col-sm-2">Developer</th>
+                                <th class="col-sm-5">Status</th>
+                                <th class="col-sm-2">Project</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div><!-- /Content Side -->
+        <!-- Footer Side-->
+        <footer>
+            Developed by Robert CRISAN
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!--<script src="Scripts/jquery-3.1.1.min.js"></script>-->
+    <script src="Controller/dashboard.js"></script>
+</body>
+</html>
